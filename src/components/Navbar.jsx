@@ -14,7 +14,7 @@ const Navbar = () => {
     ];
     const [showNav, setShowNav] = useState(false);
     return (
-        <div className="w-full h-16 fixed flex justify-between items-center px-4 bg-white bg-clip-padding backdrop-blur-sm bg-opacity-50 z-20">
+        <div className="w-full h-16 fixed flex justify-between items-center px-8 bg-white bg-clip-padding backdrop-blur-sm bg-opacity-50 z-20">
             <Link to={"/"}>
                 <img
                     src="./jimbroz.svg"
@@ -44,7 +44,10 @@ const Navbar = () => {
                 <ul className="flex flex-col gap-6 items-center justify-center absolute w-full h-screen top-0 left-0 bg-slate-100 md:hidden">
                     {menuItems.map((item, index) => (
                         <li key={index}>
-                            <Link to={item.path}>
+                            <Link
+                                to={item.path}
+                                onClick={() => setShowNav(!showNav)}
+                            >
                                 <p className="px-4 text-3xl">{item.name}</p>
                             </Link>
                         </li>
