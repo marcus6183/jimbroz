@@ -1,7 +1,7 @@
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
 const Reveal = (props) => {
-    const { children } = props;
+    const { children, delay } = props;
 
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
@@ -22,12 +22,16 @@ const Reveal = (props) => {
                 }}
                 initial="hidden"
                 animate={mainControls}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ duration: 0.5, delay: delay }}
             >
                 {children}
             </motion.div>
         </div>
     );
+};
+
+Reveal.defaultProps = {
+    delay: 0.3,
 };
 
 export default Reveal;
