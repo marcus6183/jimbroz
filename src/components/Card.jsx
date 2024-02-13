@@ -1,12 +1,31 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import Reveal from "../utils/Reveal";
 
 const Card = ({ feature }) => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        const handleWindowResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleWindowResize);
+
+        return () => {
+            window.removeEventListener("resize", handleWindowResize);
+        };
+    }, []);
+
     return (
         <div className={`w-full flex ${feature.flex}`}>
             <motion.div
                 className="bg-white min-h-48 p-4 hidden sm:flex rounded-lg shadow-[0px_5px_10px_0px_#00000024]"
-                initial={{ x: feature.offsetX, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
+                initial={{
+                    x: windowWidth >= 1225 ? feature.offsetX : 0,
+                    y: windowWidth >= 1225 ? 0 : 75,
+                    opacity: 0,
+                }}
+                whileInView={{ x: 0, y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
             >
@@ -23,11 +42,13 @@ const Card = ({ feature }) => {
                     <Title title={feature.title} icon={feature.icon} />
                 )}
             </motion.div>
-            <div className="bg-white h-fit py-6 px-4 flex flex-col sm:hidden rounded-lg shadow-[0px_5px_10px_0px_#00000024]">
-                <Title title={feature.title} icon={feature.icon} />
-                <div className="min-h-[0.5px] w-full bg-gradient-to-r from-transparent from-5% via-neutral-500 to-transparent to-95% my-4" />
-                <Description description={feature.description} />
-            </div>
+            <Reveal>
+                <div className="bg-white h-fit py-6 px-4 flex flex-col sm:hidden rounded-lg shadow-[0px_5px_10px_0px_#00000024]">
+                    <Title title={feature.title} icon={feature.icon} />
+                    <div className="min-h-[0.5px] w-full bg-gradient-to-r from-transparent from-5% via-neutral-500 to-transparent to-95% my-4" />
+                    <Description description={feature.description} />
+                </div>
+            </Reveal>
         </div>
     );
 };
