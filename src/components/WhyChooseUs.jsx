@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
         <Reveal>
             <div className="max-w-6xl mx-auto pb-20">
                 <div className="w-full flex justify-center mb-8">
-                    <p className="font-fugazOne text-black text-5xl relative inline-block text-center">
+                    <p className="font-fugazOne text-black text-3xl md:text-5xl relative inline-block text-center">
                         <span>WHY CHOOSE US?</span>
                         <span className="absolute -bottom-1 left-0 w-full h-2 bg-purple-500"></span>
                     </p>
@@ -77,7 +77,9 @@ const Block = ({ item }) => {
             className={`h-auto px-12 py-12 flex flex-col items-center justify-center shadow-[0px_5px_10px_0px_#00000024] bg-white border-4 rounded-xl sm:rounded-none ${radius} border-white hover:border-purple-500 transition-colors duration-200`}
         >
             {icon}
-            <p className="text-black font-bold max-w-36 text-center">{title}</p>
+            <p className="text-neutral-500 font-bold max-w-36 text-center">
+                {title}
+            </p>
         </motion.div>
     );
 };

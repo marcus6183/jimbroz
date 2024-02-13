@@ -5,7 +5,7 @@ const Welcome = () => {
         <div className="max-w-6xl mx-auto h-fit flex flex-col py-20">
             <Reveal>
                 <div className="w-full flex justify-center sm:justify-start mb-8">
-                    <p className="font-fugazOne text-black text-5xl relative inline-block">
+                    <p className="font-fugazOne text-black text-3xl md:text-5xl relative inline-block">
                         <span>WELCOME</span>
                         <span className="absolute -bottom-1 left-0 w-full h-2 bg-purple-500"></span>
                     </p>

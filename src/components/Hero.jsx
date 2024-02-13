@@ -24,13 +24,13 @@ const Hero = () => {
                     }}
                 />
                 <motion.div style={{ y: textY }} className="relative">
-                    <p className="font-fugazOne text-8xl z-10">
+                    <p className="font-fugazOne text-6xl md:text-8xl z-10">
                         LEVEL
                         <span className="text-purple-500 inline-block">
                             UP!
                         </span>
                     </p>
-                    <p className="font-fugazOne text-4xl text-neutral-500">
+                    <p className="font-fugazOne text-2xl md:text-4xl text-neutral-500">
                         YOUR WORKOUT ROUTINE WITH US!
                     </p>
                 </motion.div>

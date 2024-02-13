@@ -7,7 +7,7 @@ const ExploreNow = () => {
         <Reveal>
             <div className="max-w-6xl mx-auto pb-20">
                 <div className="w-full flex flex-col items-center justify-center">
-                    <p className="font-fugazOne text-black text-5xl relative inline-block text-center mb-8">
+                    <p className="font-fugazOne text-black text-3xl md:text-5xl relative inline-block text-center mb-8">
                         <span>EXPLORE NOW</span>
                         <span className="absolute -bottom-1 left-0 w-full h-2 bg-purple-500"></span>
                     </p>
