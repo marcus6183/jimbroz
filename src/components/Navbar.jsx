@@ -27,7 +27,7 @@ const Navbar = () => {
         >
             <Link to={"/"}>
                 <img
-                    src="./jimbroz.svg"
+                    src="/jimbroz.svg"
                     alt="jimbroz logo"
                     className="w-40 h-16"
                 />
