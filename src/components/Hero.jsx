@@ -10,7 +10,7 @@ const Hero = () => {
     });
     const textY = useTransform(scrollYProgress, [0, 1], ["0%", "200%"]);
     return (
-        <Reveal>
+        <Reveal delay={0}>
             <div
                 ref={ref}
                 className="w-full h-screen md:h-fit pt-20 relative overflow-hidden flex justify-center items-center"
