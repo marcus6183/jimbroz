@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { searchExercises, searchExercisesByPart } from "../redux/exerciseSlice";
+import { useDispatch } from "react-redux";
+import { searchExercises } from "../redux/exerciseSlice";
 import { IoSearch } from "react-icons/io5";
 import BodyPartButton from "./BodyPartButton";
 
@@ -38,6 +38,7 @@ const SearchExercises = () => {
             <div className="relative">
                 <input
                     type="text"
+                    name="searchInput"
                     value={searchKey}
                     className="px-4 py-2 pr-10 w-[20rem] md:w-[30rem] rounded-lg border-[2px] outline-none border-neutral-500 focus:border-purple-500 duration-200 shadow-[0px_5px_10px_0px_#00000024]"
                     placeholder="Search..."
