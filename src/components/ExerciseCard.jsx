@@ -11,7 +11,7 @@ const ExerciseCard = ({ item }) => {
         <Reveal delay={0.1}>
             <Link to={`/exercises/${item.id}`}>
                 <div className="w-72 h-fit bg-white rounded-lg flex flex-col p-4 border-2 border-white shadow-[0px_5px_10px_0px_#00000024] hover:border-purple-500 duration-200 ease-in-out hover:cursor-pointer">
-                    <img src="./testing/testingGIF.gif" alt="image" />
+                    <img src="/testing/testingGIF.gif" alt="image" />
                     <div className="min-h-[0.5px] w-full bg-gradient-to-r from-transparent from-1% via-neutral-500 to-transparent to-99%" />
                     {item.name.length > 18 ? (
                         <Marquee
@@ -37,15 +37,9 @@ const ExerciseCard = ({ item }) => {
                             <p className="px-3 bg-purple-500 text-white rounded-xl grid place-content-center">
                                 {item.bodyPart}
                             </p>
-                            {/* <p className="px-3 border-[1px] border-purple-500 rounded-xl grid place-content-center">
-                            {item.bodyPart}
-                        </p> */}
                             <p className="px-3 bg-neutral-600 text-white rounded-xl grid place-content-center">
                                 {item.target}
                             </p>
-                            {/* <p className="px-3 border-[1px] border-purple-500 rounded-xl grid place-content-center">
-                            {item.target}
-                        </p> */}
                         </div>
                     </div>
                 </div>

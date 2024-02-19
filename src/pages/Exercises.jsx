@@ -29,7 +29,7 @@ const Exercises = () => {
     }, []);
 
     return (
-        <div className="w-full min-h-screen px-8 flex flex-col items-center mt-20">
+        <div className="w-full min-h-screen px-8 flex flex-col items-center mt-16">
             <SearchExercises />
             <Results itemsPerPage={20} />
         </div>
