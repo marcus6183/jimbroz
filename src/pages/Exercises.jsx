@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { initExercises, searchExercisesByPart } from "../redux/exerciseSlice";
 import SearchExercises from "../components/SearchExercises";
 import Results from "../components/Results";
+import Loader from "../components/Loader";
+import { fetchData, exerciseOptions } from "../utils/FetchData";
 
 let didInit = false;
 
@@ -12,26 +14,33 @@ const Exercises = () => {
 
     useEffect(() => {
         // Initialize Data on first load
-        if (!didInit && exerciseList.length === 0) {
-            didInit = true;
-            console.log("Fetching Data");
-            fetch("/exercisedbAll.json") // Assuming data.json is in the public folder
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data.length);
-                    dispatch(initExercises({ data: data }));
-                    dispatch(searchExercisesByPart({ bodyPart: "All" }));
-                })
-                .catch((error) => {
-                    console.error("Error fetching data:", error);
-                });
-        }
+        const initData = async () => {
+            if (!didInit && exerciseList.length === 0) {
+                didInit = true;
+                console.log("FETCHING EXERCISES DATA - Exercises.jsx");
+                const dataExercises = await fetchData(
+                    "https://exercisedb.p.rapidapi.com/exercises?limit=1350",
+                    exerciseOptions
+                );
+                dispatch(initExercises({ data: dataExercises }));
+                dispatch(searchExercisesByPart({ bodyPart: "All" }));
+            }
+        };
+        initData();
     }, []);
 
     return (
         <div className="w-full min-h-screen px-8 flex flex-col items-center mt-16">
-            <SearchExercises />
-            <Results itemsPerPage={20} />
+            {exerciseList.length === 0 ? (
+                <div className="flex justify-center py-8">
+                    <Loader />
+                </div>
+            ) : (
+                <>
+                    <SearchExercises />
+                    <Results itemsPerPage={20} />
+                </>
+            )}
         </div>
     );
 };
