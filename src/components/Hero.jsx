@@ -23,7 +23,7 @@ const Hero = () => {
                         maskImage: "linear-gradient(#000 70%, transparent)",
                     }}
                 />
-                <motion.div style={{ y: textY }} className="relative">
+                <motion.div style={{ y: textY }}>
                     <p className="font-fugazOne text-6xl md:text-8xl z-10">
                         LEVEL
                         <span className="text-purple-500 inline-block">

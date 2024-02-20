@@ -7,6 +7,7 @@ import {
     IoChevronForward,
     IoEllipsisHorizontal,
 } from "react-icons/io5";
+import Reveal from "../utils/Reveal";
 
 const Results = ({ itemsPerPage }) => {
     const { exerciseListCurrent } = useSelector((state) => state.exercise);
@@ -53,7 +54,9 @@ const Results = ({ itemsPerPage }) => {
             <div className="grid md:grid-cols-2 gap-8">
                 {currentItems &&
                     currentItems.map((item, index) => (
-                        <ExerciseCard key={index} item={item} />
+                        <Reveal key={index} delay={0.1}>
+                            <ExerciseCard item={item} />
+                        </Reveal>
                     ))}
             </div>
             <div className="flex items-center justify-center my-10 text-xl">

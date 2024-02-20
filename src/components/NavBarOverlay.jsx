@@ -13,7 +13,6 @@ const NavBarOverlay = ({ menuItems, setShowNav }) => {
                     "#circleBg",
                     { scale: 80, opacity: [0, 1, 1] },
                     { duration: 0.7, ease: "linear", times: [0, 0.2, 1] }
-                    // { duration: 0.5, ease: "linear", times: [0, 0.05, 0.5, 1] }
                 );
                 animate("ul", { opacity: 1 }, { delay: 0.3 });
             };
@@ -30,12 +29,6 @@ const NavBarOverlay = ({ menuItems, setShowNav }) => {
                         ease: "linear",
                         times: [0, 0.8, 1],
                     }
-                    // {
-                    //     duration: 0.5,
-                    //     delay: 0.2,
-                    //     ease: "linear",
-                    //     times: [0, 0.5, 0.95, 1],
-                    // }
                 );
                 safeToRemove();
             };
@@ -68,18 +61,6 @@ const NavBarOverlay = ({ menuItems, setShowNav }) => {
                 </ul>
             </div>
         </div>
-        // <ul
-        //     ref={scope}
-        //     className="opacity-0 flex flex-col gap-6 items-center justify-center absolute w-full h-screen top-0 left-0 bg-slate-100 md:hidden"
-        // >
-        //     {menuItems.map((item, index) => (
-        //         <li key={index}>
-        //             <Link to={item.path} onClick={() => setShowNav(false)}>
-        //                 <p className="px-4 text-3xl">{item.name}</p>
-        //             </Link>
-        //         </li>
-        //     ))}
-        // </ul>
     );
 };
 

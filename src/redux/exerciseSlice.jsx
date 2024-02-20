@@ -13,7 +13,6 @@ export const exerciseSlice = createSlice({
             if (data && state.exerciseList.length === 0) {
                 state.exerciseList = data;
                 console.log("SUCCESS - Load exercises");
-                console.log(state.exerciseList.length);
             }
         },
         searchExercises: (state, action) => {
