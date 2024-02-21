@@ -13,7 +13,7 @@ const VideoCard = ({ item }) => {
                     alt={item.title}
                     className="rounded-md"
                 />
-                <div className="min-h-[1px] w-full my-1 bg-gradient-to-r from-transparent from-1% via-neutral-500 to-transparent to-99%" />
+                <div className="h-[1px] w-full my-1 bg-gradient-to-r from-transparent from-1% via-neutral-500 to-transparent to-99%" />
                 {item.title.length > 18 ? (
                     <Marquee
                         className="w-full overflow-hidden relative"
