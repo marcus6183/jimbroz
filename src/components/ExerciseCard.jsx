@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 
@@ -19,10 +20,19 @@ const ExerciseCard = ({ item }) => {
         <Link to={`/exercises/${item.id}`}>
             <div className="w-72 h-fit bg-white rounded-lg flex flex-col p-4 border-2 border-white shadow-[0px_5px_10px_0px_#00000024] hover:border-purple-500 duration-200 ease-in-out hover:cursor-pointer">
                 <div className="w-[252px] h-[252px] relative">
-                    <div
+                    <motion.div
+                        animate={{
+                            backgroundColor: ["#f5f5f5", "#e5e5e5", "#f5f5f5"],
+                        }}
+                        transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            repeatDelay: 0.5,
+                            ease: "easeOut",
+                        }}
                         className={`${
-                            imageLoaded ? "hidden" : "block"
-                        } w-full h-full absolute bg-neutral-300 rounded-lg`}
+                            imageLoaded ? "opacity-0" : "opacity-100"
+                        } w-full h-full absolute bg-neutral-200 rounded-lg transition-opacity duration-200`}
                     />
                     <img
                         src={item.gifUrl}
@@ -32,7 +42,7 @@ const ExerciseCard = ({ item }) => {
                     />
                 </div>
 
-                <div className="min-h-[0.5px] w-full bg-gradient-to-r from-transparent from-1% via-neutral-500 to-transparent to-99%" />
+                <div className="h-[1px] my-1 w-full bg-gradient-to-r from-transparent from-1% via-neutral-500 to-transparent to-99%" />
                 {item.name.length > 18 ? (
                     <Marquee
                         className="w-full overflow-hidden relative"
