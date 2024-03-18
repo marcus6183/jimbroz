@@ -83,7 +83,7 @@ const ExerciseDetail = () => {
                     <Loader />
                 </div>
             ) : (
-                <div className="max-w-3xl h-fit py-8 px-6 mx-auto flex flex-col">
+                <div className="max-w-3xl h-fit py-8 mx-auto flex flex-col">
                     <Reveal>
                         <div className="flex flex-col md:flex-row">
                             <img
