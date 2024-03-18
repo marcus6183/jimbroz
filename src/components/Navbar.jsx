@@ -1,8 +1,8 @@
-import { FaTimes, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavBarOverlay from "./NavBarOverlay";
+import AnimatedBurgerMenu from "./AnimatedBurgerMenu";
 
 const Navbar = () => {
     const menuItems = [
@@ -44,11 +44,8 @@ const Navbar = () => {
                     </li>
                 ))}
             </ul>
-            <div
-                className="md:hidden z-30 cursor-pointer"
-                onClick={() => setShowNav(!showNav)}
-            >
-                {showNav ? <FaTimes size={30} /> : <FaBars size={30} />}
+            <div className="md:hidden z-30">
+                <AnimatedBurgerMenu showNav={showNav} setShowNav={setShowNav} />
             </div>
             <AnimatePresence>
                 {showNav && (
